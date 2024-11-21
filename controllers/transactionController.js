@@ -94,6 +94,13 @@ export const transfer = async (req, res) => {
       return res.status(401).json({ error: "Invalid PIN" });
     }
 
+    // Validate that toAccount is not the same as the current user's account
+    if (toAccount === fromUser.accountNumber) {
+      return res
+        .status(400)
+        .json({ error: "You cannot transfer to your own account" });
+    }
+
     const toUser = await User.findOne({ accountNumber: toAccount });
     if (!toUser) {
       return res.status(404).json({ error: "Recipient account not found" });
