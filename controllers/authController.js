@@ -88,7 +88,7 @@ export const login = async (req, res) => {
     const token = createToken(user);
     sendTokenInCookie(res, token);
 
-    res.json({ token, user });
+    res.json({ token, user }).status(200);
   } catch (err) {
     res.status(500).json({ message: "Login failed", error: err.message });
   }
