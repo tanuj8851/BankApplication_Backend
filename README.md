@@ -38,7 +38,7 @@ This is a comprehensive Bank Management System that empowers users to efficientl
 - **Request Body:**
   ```json
   {
-  "username": "user2",
+  "username": "user4",
    "pin": "1234",
   "initial": "500"
   }
@@ -46,47 +46,27 @@ This is a comprehensive Bank Management System that empowers users to efficientl
  - **Response Body:**
    ```json
    {
-    "message": "Task Created",
-    "id": 5,
-    "title": "Task 5",
-    "description": "This is the fifth task",
-    "status": "pending"
+    "message": "User registered successfully",
+    "accountNumber": "BANK-9825230"
    }
 
 
-### 2. Get All Tasks
-- **Endpoint**: GET- `http://localhost:8000/api/task/task`
-- **Description**: Retrieves all tasks.
+### 2. User Login
+- **Endpoint**: POST- `http://localhost:8000/api/user/login`
+- **Description**: User can login.
 - Response Body:
 ```json
 {
-  "message": "Fetched all Tasks",
-  "results": [
-    {
-            "id": 5,
-            "title": "Task 5",
-            "description": "This is the fifth task",
-            "status": "pending",
-            "created_at": "2024-11-18T17:53:08.000Z",
-            "updated_at": "2024-11-18T17:53:08.000Z"
-    }
-  ]
+  "username":"user4",
+  "pin":"1234"
  }
 
 
 ```
-### 3. Update Task
-- **Endpoint**: PUT- `http://localhost:8000/api/task/tasks/1`
-- **Description**: Updates the details of a task.
-- Request Body:
-```json
+### 3. User Profile
+- **Endpoint**: GET- `http://localhost:8000/api/user/profile`
+- **Description**: Reterived User Profile.
 
-{
-   "title": "Task 5",
-   "description": "This is the fifth task",
-   "status": "completed"
-}
-```
 - Response Body:
 ```json
 
@@ -113,4 +93,4 @@ This is a comprehensive Bank Management System that empowers users to efficientl
 ```
 ---------------------------------------------------------------------------------------
 ## video
-https://drive.google.com/file/d/1SW_P5XAVCbXAUA1XuGQP_Ka4dde0ZxBu/view?usp=sharing
+
