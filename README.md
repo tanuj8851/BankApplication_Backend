@@ -71,23 +71,32 @@ This is a comprehensive Bank Management System that empowers users to efficientl
 ```json
 
 {
-   "message": "Task Updated",
-    "id": "1",
-    "title": "Task 5",
-    "description": "This is the fifth task",
-    "status": "completed"
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3M2VkZmIzZjJkZTllMmE4MjFjODRhYyIsInRva2VuVmVyc2lvbiI6MSwiaWF0IjoxNzMyMTc4MTQ4LCJleHAiOjE3MzIxNzkwNDh9.wjVGYkhSSfdLeNRvWhi4_xuKN9fUn7uiPY7Nh5VM83g",
+    "transactionHistory": [],
+    "user": {
+        "_id": "673edfb3f2de9e2a821c84ac",
+        "username": "user3",
+        "pin": "$2a$10$LX6/Qcukh3RPjV0jgfqCJeSzw5zqtRhDiiSZubDFL2r51K86k5dty",
+        "accountNumber": "BANK-5218408",
+        "balance": 400,
+        "isLocked": false,
+        "failedAttempts": 0,
+        "transactions": [],
+        "tokenVersion": 1,
+        "__v": 0
+    }
 }
 
 ```
 
-### 5. Delete Task
-- **Endpoint**: DELETE- `http://localhost:8080/api/task/tasks/5`
-- **Description**: Deletes a task by its ID.
+### 5. User Logout
+- **Endpoint**: DELETE- `http://localhost:8080/api/user/logout`
+- **Description**:User can Logout. 
 - Response Body:
 ```json
 
 {
-  "message": "Task deleted successfully"
+    "message": "Logout successful."
 }
 
 ```
