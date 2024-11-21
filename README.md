@@ -10,7 +10,7 @@ This is a comprehensive Bank Management System that empowers users to efficientl
 - **User Login :** Users can login.
 - **User logout :** Users can logout.
 - **User Profile  :** User Profile .
-- 
+  
 - **Deposit money  :** User can deposit money to own account.
 - **Withdraw money :** Users can withdraw money from own account.
 - **Transfer money :** Users can transfer own money to other users account.
@@ -99,6 +99,79 @@ This is a comprehensive Bank Management System that empowers users to efficientl
     "message": "Logout successful."
 }
 
+```
+
+## Transactions EndPoints
+
+
+### 1. Deposit Money
+- **Endpoint**: POST- `http://localhost:8000/api/transactions/deposit`
+- **Description**: User can deposit money to own money.
+- **Request Body:**
+  ```json
+  {
+  "amount":"500",
+  "pin":"1234"
+  }
+
+ - **Response Body:**
+   ```json
+   {
+    "message": "Deposit successful",
+    "balance": 900
+   }
+
+### 2. WithDraw Money
+- **Endpoint**: POST- `http://localhost:8000/api/transactions/withdraw`
+- **Description**: User can withdraw money from own money.
+- **Request Body:**
+  ```json
+  {
+  "amount":"300",
+  "pin":"1234"
+  }
+
+ - **Response Body:**
+   ```json
+   {
+    "message": "Withdrawal successful",
+    "balance": 600
+   }
+
+### 3. Transfer Money to other account
+- **Endpoint**: POST- `http://localhost:8000/api/transactions/transfer`
+- **Description**: User can transfer money to other account.
+- **Request Body:**
+  ```json
+  {
+  "toAccount":"BANK-5688649",
+  "amount":"500",
+  "pin":"1234"
+  }
+
+ - **Response Body:**
+   ```json
+   {
+    "message": "Transfer successful",
+    "balance": 100
+   }
+
+ ### 4. Transaction History 
+- **Endpoint**: POST- `http://localhost:8000/api/transactions/histpry`
+- **Description**: Transactions history.
+ - **Response Body:**
+   ```json
+     {
+        "_id": "673ef2b58ee4d415becfd630",
+        "type": "TRANSFER",
+        "amount": 500,
+        "fromAccount": "BANK-5218408",
+        "toAccount": "BANK-5688649",
+        "balanceAfter": 100,
+        "timestamp": "2024-11-21T08:43:33.284Z",
+        "__v": 0
+    },
+   
 ```
 ---------------------------------------------------------------------------------------
 ## video
