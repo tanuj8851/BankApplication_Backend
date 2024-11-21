@@ -54,13 +54,21 @@ This is a comprehensive Bank Management System that empowers users to efficientl
 ### 2. User Login
 - **Endpoint**: POST- `http://localhost:8000/api/user/login`
 - **Description**: User can login.
-- Response Body:
-```json
-{
-  "username":"user4",
-  "pin":"1234"
- }
+- **Request Body:**
+  ```json
+  {
+  "username": "user4",
+   "pin": "1234",
+  "initial": "500"
+  }
 
+ - **Response Body:**
+   ```json
+   {
+    "message": "User registered successfully",
+    "accountNumber": "BANK-9825230"
+   }
+```
 
 ```
 ### 3. User Profile
@@ -159,7 +167,7 @@ This is a comprehensive Bank Management System that empowers users to efficientl
  ### 4. Transaction History 
 - **Endpoint**: POST- `http://localhost:8000/api/transactions/histpry`
 - **Description**: Transactions history.
- - **Response Body:**
+- **Response Body:**
    ```json
      {
         "_id": "673ef2b58ee4d415becfd630",
@@ -172,7 +180,8 @@ This is a comprehensive Bank Management System that empowers users to efficientl
         "__v": 0
     },
    
-```
+
+
 ---------------------------------------------------------------------------------------
 ## video
 https://drive.google.com/file/d/1uc3vFNZvjG3WZYmSOyO2mYOaouUr1nPc/view?usp=sharing
