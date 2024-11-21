@@ -96,10 +96,6 @@ export const login = async (req, res) => {
 
 export const logout = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id);
-    user.tokenVersion += 1;
-    await user.save();
-
     // Clear the cookie
     res.clearCookie("authToken", {
       httpOnly: true,
