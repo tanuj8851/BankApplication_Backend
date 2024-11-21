@@ -71,12 +71,14 @@ export const login = async (req, res) => {
     const isMatch = await bcrypt.compare(pin, user.pin);
     if (!isMatch) {
       user.failedAttempts += 1;
+
+      let attemptLeft = 3 - user.failedAttempts;
       if (user.failedAttempts >= 3) {
         user.isLocked = true;
         user.lockUntil = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 hours
       }
       await user.save();
-      return res.status(401).json({ message: "Invalid PIN" });
+      return res.status(401).json({ message: "Invalid PIN", attemptLeft });
     }
 
     user.failedAttempts = 0;
@@ -86,7 +88,7 @@ export const login = async (req, res) => {
     const token = createToken(user);
     sendTokenInCookie(res, token);
 
-    res.json({ token, transactionHistory: user.transactions, user });
+    res.json({ token, user });
   } catch (err) {
     res.status(500).json({ message: "Login failed", error: err.message });
   }
@@ -115,6 +117,7 @@ export const logout = async (req, res) => {
 export const userProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id).select("-password");
+    console.log("COntroller");
 
     res.status(200).send({ user });
   } catch (error) {
