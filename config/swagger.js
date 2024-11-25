@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: "https://localhost:8000/",
+        url: "https://bankapplication-backend-qhkz.onrender.com/",
       },
     ],
   },
