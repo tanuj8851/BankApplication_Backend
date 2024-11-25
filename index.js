@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 const corsOptions = {
   origin: process.env.Frontend_URl, // Frontend URL
   methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true, // Allow credentials (cookies)
+  credentials: true,
 };
 app.use(cors(corsOptions));
 
