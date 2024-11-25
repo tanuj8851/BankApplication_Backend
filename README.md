@@ -1,6 +1,6 @@
 # Bank Application
 
-This is a comprehensive Bank Management System that empowers users to efficiently organize their transactions. The backend is built using Node.js and Express. The data is managed using mongodb.
+This is a comprehensive Bank Management System that empowers users to efficiently organize their transactions. The backend is built using Node.js and Express. The data is managed using mongodb  and Swagger for documentation.
 
 ## Features 
 
@@ -20,6 +20,9 @@ This is a comprehensive Bank Management System that empowers users to efficientl
 ## Tech Stack 
 **Server:** Handles business logic, transaction operations, and database interactions using Node.js and Express.
 **Database:** MonogoDB
+
+## Swagger URL
+Access the API documentation here: [Swagger UI](https://bankapplication-backend-qhkz.onrender.com/api-docs/)
 
 
 ## Project Setup
