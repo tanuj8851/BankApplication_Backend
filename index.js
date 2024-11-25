@@ -7,6 +7,7 @@ import authRoutes from "./routes/auth.route.js";
 import transactionRoutes from "./routes/transaction.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import swaggerDocs from "./config/swagger.js";
 
 dotenv.config();
 
@@ -36,6 +37,9 @@ app.use(limiter);
 //Routes
 app.use("/api/user", authRoutes);
 app.use("/api/transactions", transactionRoutes);
+
+//api documentations
+swaggerDocs(app);
 
 // Connect to MongoDB
 mongoose
