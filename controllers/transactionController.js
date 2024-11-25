@@ -101,9 +101,19 @@ export const transfer = async (req, res) => {
         .json({ error: "You cannot transfer to your own account" });
     }
 
+    // find the user by accountNumber
     const toUser = await User.findOne({ accountNumber: toAccount });
     if (!toUser) {
       return res.status(404).json({ error: "Recipient account not found" });
+    }
+
+    // Check if the recipient account is locked
+    if (toUser.isLocked) {
+      return res
+        .status(403)
+        .json({
+          error: "Recipient's profile is locked. Cannot transfer money.",
+        });
     }
 
     if (fromUser.balance < wholeAmount) {

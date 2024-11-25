@@ -2,7 +2,6 @@ import express from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import rateLimit from "express-rate-limit";
 import authRoutes from "./routes/auth.route.js";
 import transactionRoutes from "./routes/transaction.route.js";
 import cookieParser from "cookie-parser";
@@ -26,13 +25,6 @@ const corsOptions = {
   credentials: true,
 };
 app.use(cors(corsOptions));
-
-// Rate Limiting
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit 100 requests
-});
-app.use(limiter);
 
 //Routes
 app.use("/api/user", authRoutes);
